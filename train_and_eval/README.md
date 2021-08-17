@@ -46,8 +46,7 @@ This will load the model with the given ID (must be available under `./models/tf
 To evaluate the best BiRNN on the test set of DIP-IMU, use the following command.
 
 ```commandline
-python run_evaluation.py --system local --data_file v9 --model_id 1527876409 --save_dir ./models
---eval_dir ./evaluation_results/ --datasets dip-imu
+python run_evaluation.py --system local --data_file v9 --model_id 1527876409 --save_dir ./models --eval_dir ./evaluation_results/ --datasets dip-imu
 ```
 
 This will load the model with the given ID (must be available under `./models/tf-1527876409-...`) and print metrics computed over DIP-IMU (`dip-imu`). The results are also dumped to a log file in `--eval_dir`. If you want to visualize some results, add `--save_predictions` to the command. This will dump all the samples in the respective database as a `.npz` file. You can visualize these files using the code available in the live demo [folder](../live_demo).
@@ -56,8 +55,7 @@ This will load the model with the given ID (must be available under `./models/tf
 To evaluate a BiRNN using only windowed input, use the following command.
 
 ```commandline
-python run_evaluation.py --system local --data_file v9 --model_id 1527876409 --save_dir ./models
---eval_dir ./evaluation_results/ --datasets dip-imu --past_frames 20 50 --future_frames 5
+python run_evaluation.py --system local --data_file v9 --model_id 1527876409 --save_dir ./models --eval_dir ./evaluation_results/ --datasets dip-imu --past_frames 20 50 --future_frames 5
 ```
 
 This will evaluate the model in online mode on DIP-IMU, once using 20 past and 5 future frames and once using 50 past and 5 future frames.
